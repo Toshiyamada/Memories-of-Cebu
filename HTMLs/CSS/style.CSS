@@ -1,0 +1,168 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+.firstHeading {
+    font-size: 18px;
+    margin: 0;
+}
+
+#bodyContent img {
+    width: 100%;
+    height: auto;
+}
+
+
+/*==================================================
+button
+===================================*/
+
+
+/*塗りから線に変わる*/
+.btnchangeline {
+    /*線の基点とするためrelativeを指定*/
+    position: relative;
+    /*ボタンの形状*/  
+    color: #333;
+    padding: 10px 30px;
+    display: inline-block;
+    text-decoration: none;
+    outline: none;
+    /*アニメーションの指定*/   
+    transition: all 0.3s ease-in-out;
+}
+
+/*線の設定*/
+.btnchangeline::before {
+    content: '';
+    /*絶対配置で線の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /*線の形状*/
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    /*はじめは透過0に*/
+    opacity: 0;
+    transform: scale(0, 1);
+    /*アニメーションの指定*/   
+    transition: all 0.3s;
+}
+
+/*背景の設定*/
+.btnchangeline::after {
+    content: '';
+    /*絶対配置で背景の位置を決める*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    /*背景の形状*/
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    /*アニメーションの指定*/ 
+    transition: all 0.3s;
+}
+
+/*hoverした際の背景と線の形状*/
+.btnchangeline:hover::before {
+    opacity: 1;/*不透明に*/ 
+    transform: scale(1, 1);/*X方向に線を伸ばす*/
+}
+
+.btnchangeline:hover::after {
+    opacity: 0;/*透過0に*/
+    transform: scale(0, 1);/*X方向に背景を縮小*/
+}
+
+/*テキストの設定*/
+.btnchangeline span {
+    /*テキストを前面に出すためz-indexの値を高く設定*/  
+    position: relative;
+    z-index: 2;
+    /*テキストの形状*/
+    color: #fff;
+    /*アニメーションの指定*/   
+    transition: all 0.3s;
+}
+
+/*hoverした際のテキストの形状*/
+.btnchangeline:hover span {
+    letter-spacing: 2px;
+    color: #333;
+}
+
+
+/*==================================================
+スライダーのためのcss
+===================================*/
+.slider img {
+    width:100%;/*スライダー内の画像を横幅100%に*/
+    height:auto;
+}
+
+/*slickのJSで書かれるタグ内、スライド左右の余白調整*/
+
+.slider .slick-slide {
+    margin:0 10px;/*スライド左右の余白調整*/
+}
+
+/* ボタンがはみ出た場合の調整用クラス */
+.adjust-position {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+}
+
+
+/* ボタンのコンテナに対してグリッドレイアウトを設定 */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列に設定 */
+    gap: 10px; /* ボタン間のスペース */
+}
+
+/* ボタンを横並びに配置 */
+.btnchangeline {
+    text-align: center;
+    margin: 10px 0; /* ボタンの上下にマージンを追加 */
+}
+
+.slider img {
+    width: 100%;
+    height: 300px; /* ここで高さを設定、好みに応じて変更できます */
+    object-fit: cover; /* 画像をスライダーの枠にフィットさせます */
+}
+
+.text-container {
+    font-family: Arial, sans-serif; /* フォントを設定（任意） */
+}
+
+.text-card h3 {
+    font-size: 28px; /* 見出しのフォントサイズを大きく */
+    margin-bottom: 10px; /* 見出しと段落の間隔を調整（任意） */
+}
+
+.text-card p {
+    font-size: 20px; /* 段落のフォントサイズを大きく */
+    line-height: 1.6; /* 行間を調整（任意） */
+}
+
+/* グリッドレイアウトの設定 */
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 1列に4つのボタンを配置 */
+    gap: 10px; /* ボタン間のスペース */
+}
+
+

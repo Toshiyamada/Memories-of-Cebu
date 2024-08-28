@@ -1,0 +1,17 @@
+/* CSSファイル (photos.CSS) */
+.slider img {
+    width: 100%; /* 画像がスライダーの幅に合わせて調整されます */
+    height: auto; /* アスペクト比を保つ */
+}
+/* CSSファイル (photos.CSS) */
+.slider {
+    width: 80%; /* スライダーの幅を調整 */
+    margin: auto; /* スライダーを中央に配置 */
+    margin-top: 50px;
+}
+
+.slider img {
+    width: 100%; /* 画像の幅をスライダーに合わせる */
+    height: auto; /* アスペクト比を保つ */
+}
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/6-1-8.css">
+    <link rel="stylesheet" href="./CSS/style.CSS">
+    <title>Document</title>
+    <style>
+        /* スライダーの下に表示されるテキストのスタイル */
+        .text-container {
+            display: flex;
+            justify-content: space-around; /* テキストを均等に配置 */
+            margin-top: 20px;
+            padding: 20px; /* カードの間隔を調整 */
+        }
+        .text-card {
+            background: #fff; /* 背景色 */
+            border: 1px solid #ddd; /* 枠線 */
+            border-radius: 8px; /* 角を丸くする */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* シャドウ効果 */
+            padding: 15px; /* 内側の余白 */
+            width: 30%; /* カードの幅 */
+            text-align: center; /* テキストを中央に配置 */
+            box-sizing: border-box; /* パディングやボーダーを幅に含める */
+            overflow: hidden; /* はみ出た部分を隠す */
+        }
+        .text-card h3 {
+            margin: 0;
+            padding-bottom: 10px; /* 下線と説明文の間隔を調整 */
+            border-bottom: 2px solid #000; /* 下線のスタイル */
+            font-size: 18px; /* タイトルのフォントサイズ */
+            word-wrap: break-word; /* 長い単語がカード内で折り返されるようにする */
+        }
+        .text-card p {
+            margin: 10px 0 0;
+            font-size: 14px; /* 説明文のフォントサイズ */
+            color: #555; /* 説明文の色 */
+            word-wrap: break-word; /* 長い単語がカード内で折り返されるようにする */
+            overflow-wrap: break-word; /* テキストがカードからはみ出さないようにする */
+        }
+    </style>
+</head>
+<body>
+    <ul class="slider">
+        <li><img src="./img/nightclub together.jpg" alt=""></li>
+        <li><img src="./img/nightclub view.jpg" alt=""></li>
+        <li><img src="./img/nightclub_view.jpg" alt=""></li>
+        <li><img src="./img/clublight.jpg" alt=""></li>
+        <li><img src="./img/night_club.jpg" alt=""></li>
+        <li><img src="./img/nightclub together.jpg" alt=""></li>
+        <!--/slider--></ul>
+    
+    <!-- スライダーの下に表示されるテキスト -->
+    <div class="text-container">
+        <div class="text-card">
+            <h3>Things to watch out for</h3>
+            <p>Be careful of pickup artists!!</p>
+        </div>
+        <div class="text-card">
+            <h3>Impressive things</h3>
+            <p>I successfully picked someone up.</p>
+        </div>
+        <div class="text-card">
+            <h3>Things that were good</h3>
+            <p>Since there's a language school nearby, there are also many Japanese people.</p>
+        </div>
+    </div>
+
+    <!-- koko -->
+    <style>
+        .text-container {
+            font-family: Arial, sans-serif; /* フォントを設定（任意） */
+        }
+        
+        .text-card h3 {
+            font-size: 28px; /* 見出しのフォントサイズを大きく */
+            margin-bottom: 10px; /* 見出しと段落の間隔を調整（任意） */
+        }
+        
+        .text-card p {
+            font-size: 20px; /* 段落のフォントサイズを大きく */
+            line-height: 1.6; /* 行間を調整（任意） */
+        }
+        </style>
+        
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!-- 自作のJS -->
+    <script src="js/6-1-8.js"></script>
+</body>
+</html>

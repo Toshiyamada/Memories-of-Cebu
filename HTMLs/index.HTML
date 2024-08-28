@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.CSS">
+    <link rel="stylesheet" type="text/css" href="css/7-1-38.css">
+    <title>Document</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDBwzGAnkY1szSzqDhYnM9LTnDOtDKdhs&callback=initMap" async defer></script>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: 10.2674, lng: 123.9488 }, // Map center
+          zoom: 12 // Zoom level
+        });
+
+        var markers = []; // Array to hold marker references
+
+        // Marker positions and related data
+        var locations = [
+            { position: { lat: 10.2674, lng: 123.9488 }, condition: '10000_roses', buttonId: 'btn1' },
+            { position: { lat: 9.8027, lng: 123.3763 }, condition: 'water_fall', buttonId: 'btn2' },
+            { position: { lat: 10.3108, lng: 123.8916 }, condition: 'nexceed', buttonId: 'btn3' },
+            { position: { lat: 10.3298, lng: 123.9015 }, condition: 'the_pad', buttonId: 'btn4' },
+            { position: { lat: 10.3072, lng: 124.0155 }, condition: 'mactan', buttonId: 'btn5' },
+            { position: { lat: 10.2770, lng: 123.9791 }, condition: 'mactan_hotel', buttonId: 'btn6' },
+            { position: { lat: 9.4668, lng: 123.3937 }, condition: 'whale_shark', buttonId: 'btn7' },
+            { condition: 'another', buttonId: 'btn8' }, // No position defined
+            { position: { lat: 10.3228, lng: 123.9193 }, condition: 'nightclub', buttonId: 'btn9' },
+            { position: { lat: 10.2910, lng: 123.9056 }, condition: 'museum', buttonId: 'btn10' },
+            { position: { lat: 10.3281, lng: 123.9048 }, condition: 'civet', buttonId: 'btn11' }
+        ];
+
+        locations.forEach(function(location) {
+            if (location.position) {
+                // Create markers only for locations with positions
+                var marker = new google.maps.Marker({
+                    position: location.position,
+                    map: map,
+                    title: location.condition
+                });
+                markers.push(marker);
+
+                // Add click listener to markers
+                marker.addListener('click', function() {
+                    window.location.href = `./${location.condition}.html`;
+                });
+
+                // Add mouseover event listener to simulate button click
+                marker.addListener('mouseover', function() {
+                    document.getElementById(location.buttonId).click();
+                });
+            }
+        });
+
+        // Button click event to center the map on the respective marker or handle non-location cases
+        locations.forEach(function(location) {
+            var button = document.getElementById(location.buttonId);
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                if (location.position) {
+                    // Center map on marker position
+                    map.setCenter(location.position);
+                    map.setZoom(15); // Adjust zoom level if needed
+                } else {
+                    // Handle cases where there's no map position
+                    window.location.href = './' + location.condition + '.html';
+                }
+            });
+        });
+      }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        .firstHeading {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        #bodyContent img {
+            width: 100%;
+            height: auto;
+        }
+
+        /*==================================================
+        button
+        ===================================*/
+
+        .btnchangeline {
+            position: relative;
+            color: #333;
+            padding: 10px 30px;
+            display: inline-block;
+            text-decoration: none;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btnchangeline::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-top: 1px solid #666;
+            border-bottom: 1px solid #666;
+            opacity: 0;
+            transform: scale(0, 1);
+            transition: all 0.3s;
+        }
+
+        .btnchangeline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            transition: all 0.3s;
+        }
+
+        .btnchangeline:hover::before {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
+
+        .btnchangeline:hover::after {
+            opacity: 0;
+            transform: scale(0, 1);
+        }
+
+        .btnchangeline span {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            transition: all 0.3s;
+        }
+
+        .btnchangeline:hover span {
+            letter-spacing: 2px;
+            color: #333;
+        }
+
+        /*==================================================
+        グリッドレイアウトの設定
+        ===================================*/
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4列に設定 */
+            gap: 10px; /* ボタン間のスペース */
+        }
+
+        .btnchangeline {
+            text-align: center;
+            margin: 10px 0; /* ボタンの上下にマージンを追加 */
+        }
+
+        /* 2列目のボタンのスタイル */
+        .btnchangeline:nth-of-type(9),
+        .btnchangeline:nth-of-type(10) {
+            grid-column: span 2; /* 2列分を占める */
+        }
+    </style>
+</head>
+<body onload="initMap()">
+    <div id="map"></div>
+
+    <!-- ボタンコンテナ -->
+    <div class="button-container">
+        <a href="./10000_roses.html" class="btnchangeline" id="btn1"><span>10000 Roses</span></a>
+        <a href="./water_fall.html" class="btnchangeline" id="btn2"><span>Water Fall</span></a>
+        <a href="./nexceed.html" class="btnchangeline" id="btn3"><span>Nexceed</span></a>
+        <a href="./the_pad.html" class="btnchangeline" id="btn4"><span>The Pad</span></a>
+        <a href="./mactan.html" class="btnchangeline" id="btn5"><span>Mactan</span></a>
+        <a href="./mactan_hotel.html" class="btnchangeline" id="btn6"><span>Mactan Hotel</span></a>
+        <a href="./whale_shark.html" class="btnchangeline" id="btn7"><span>Whale Shark</span></a>
+        <a href="./another.HTML" class="btnchangeline" id="btn8"><span>Another</span></a>
+        <a href="./nightclub.HTML" class="btnchangeline" id="btn9"><span>Nightclub</span></a>
+        <a href="./museum.HTML" class="btnchangeline" id="btn10"><span>Museum</span></a>
+        <a href="./civit.HTML" class="btnchangeline" id="btn11"><span>Civet cafe</span></a>
+    </div>
+</body>
+</html>
